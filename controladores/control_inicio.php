@@ -25,7 +25,7 @@ if(isset($_GET['inicioaccion'])){
                 $_SESSION['usuario']=@serialize($lin);
                 header("location: ../home.php");
             }else{
-                header("location: index.html");
+                header("location: ../index.html");
                 echo '<script language="javascript">alert("Usuario o Contraseña incorrectas");</script>';
                 
             }
