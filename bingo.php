@@ -1,7 +1,13 @@
 <?php
 @session_start();
-
-
+include_once("\controladores\Juego.php");
+$juego = new Juego(); 
+$juego = consultarJuegoId($_GET['id']);
+  if($juego != null){
+    $_SESSION['juego'] = @serialize($juego);
+  }else{
+    header("location: home.php");
+  }
 
 ?>
 

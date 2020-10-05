@@ -1,8 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php 
 @session_start();
+include_once(".\controladores\Juego.php");
+  $juegosActivos = listarJuegosActivos(); 
+
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -158,21 +163,34 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <!-- <tr>
                     <td>1</td>
                     <td></td>
                     <td></td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                   -->
+                   <?php 
+
+                      foreach($juegosActivos as $js){
+                        echo "<tr>";
+                        echo "<td>".$js->id."</td>";
+                        echo "<td>".consultarUsuario($js->id)->nombre."</td>";
+
+                        ?>
+
+                        <td>
+                        <a href="bingo.php?id=<?php echo $js->id; ?>" tittle="Unirse al juego"><i class='class="bi bi-plug'></i></a> &nbsp  
+
+                        </td>
+
+                        <?php
+
+                        echo "</tr>";
+
+                      }
+
+                   ?>
+
                 </tbody>
               </table>
             </div>
