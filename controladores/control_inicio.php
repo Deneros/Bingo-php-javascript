@@ -14,7 +14,7 @@ if(isset($_GET['inicioaccion'])){
                 $_SESSION['balotas_sacadas']=null;
                 $_SESSION['juego']=null;
             }
-            header("location: tablero_juego.php?idjuego=$id");
+            header("location: ../bingo.php?idjuego=$id");
         break; 
         case 2:
             $juego = new Juego();
@@ -23,7 +23,7 @@ if(isset($_GET['inicioaccion'])){
             $lin = $juego->iniciarSesion($correo,$contrasena);
             if($lin != null){
                 $_SESSION['usuario']=@serialize($lin);
-                header("location: home.html");
+                header("location: ../home.php");
             }else{
                 header("location: index.html");
                 echo '<script language="javascript">alert("Usuario o Contraseña incorrectas");</script>';
